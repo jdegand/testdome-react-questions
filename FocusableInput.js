@@ -1,14 +1,15 @@
 // React is loaded and is available as React and ReactDOM
 // imports should NOT be used
 const FocusableInput = (props) => {
-    // Write your code here
-    const shouldFocus = React.useRef(null);
+    const inputRef = React.useRef();
     
     React.useEffect(()=> {
-      shouldFocus.current.focus();
+      if(props.shouldFocus){
+        inputRef.current.focus()
+      }
     }, [])
     
-    return <input ref={shouldFocus} />;
+    return <input ref={inputRef} />;
   };
   
   document.body.innerHTML = "<div id='root' />";
