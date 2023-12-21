@@ -75,7 +75,7 @@ function CharacterAttributes(props) {
   const [speed, setSpeed] = React.useState(0);
   const [score, setScore] = React.useState(0);
   
-  // At one point, I tried to use a state object and a single event handler
+  // At one point, I tried to use a state object and a single state handler
   // e.target.name = e.target.value 
   // I was having difficulty so I dumbed it down to use separate state
 
