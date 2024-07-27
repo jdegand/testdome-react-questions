@@ -1,4 +1,3 @@
-# testdome-react-questions
-Test Dome React Interview Questions
+# Test Dome React Interview Questions
 
-[Test Dome](https://www.testdome.com/d/react-js-interview-questions/304)
+[Test Dome](https://www.testdome.com/tests/react-js-online-test/104)
