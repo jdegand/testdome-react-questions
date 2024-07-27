@@ -1,23 +1,23 @@
-// React is loaded and is available as React and ReactDOM
-// imports should NOT be used
+import React from 'react';
+import { createRoot } from 'react-dom/client';
+
 const TodoItem = (props) => <li onClick={props.onClick}>{props.item.text}</li>
 
-class TodoList extends React.Component {
-  render() {
-    const { items, onListClick } = this.props;
-    return (<ul onClick={onListClick}>
-      {items.map((item, index) => 
-                 <TodoItem item={item} key={index} onClick={this.handleItemClick.bind(this, item)}/>)}
-    </ul>);
-  }
-  
-  handleItemClick(item, event) {
-    if(item.done){
+const TodoList = ({ items, onListClick, onItemClick }) => {
+  const handleItemClick = (item, event) => {
+     if(item.done){
       event.stopPropagation();
     } else {
-      this.props.onItemClick(item,event); 
+      onItemClick(item,event); 
     }
-  }
+  };
+
+  return (
+    <ul onClick={onListClick}>
+      {items.map((item, index) => 
+        <TodoItem item={item} key={index} onClick={(event) => handleItemClick(item, event)}/>)}
+    </ul>
+  );
 }
 
 const items = [ { text: 'Buy grocery', done: true },
@@ -32,5 +32,6 @@ const App = (props) => <TodoList
 />;
 
 document.body.innerHTML = "<div id='root'></div>";
-const rootElement = document.getElementById("root");
-ReactDOM.render(<App items={items}/>, rootElement);
+const root = createRoot(document.getElementById("root"));
+
+root.render(<App items={items}/>);
