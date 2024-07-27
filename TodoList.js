@@ -5,7 +5,7 @@ const TodoItem = (props) => <li onClick={props.onClick}>{props.item.text}</li>
 
 const TodoList = ({ items, onListClick, onItemClick }) => {
   const handleItemClick = (item, event) => {
-     if(item.done){
+    if (item.done) {
       event.stopPropagation();
     } else {
       onItemClick(item,event); 
