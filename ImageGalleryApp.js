@@ -9,7 +9,7 @@ const ImageGallery = ({ links }) => {
   return (
     <div>
       {links.map((link, index) => <div key={index} className="image">
-        <img src={link} />
+        <img src={link} alt="" />
         <button className="remove" onClick={event => remove(event)}>X</button>
       </div>
       )}
